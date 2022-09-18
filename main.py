@@ -1,16 +1,11 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Sep 17 14:06:47 2022
-
-@author: Hp
-"""
-
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 import warnings
 import pickle
+import streamlit as st
+import os
 warnings.filterwarnings("ignore")
 
 data = pd.read_csv('Forest_fire.csv')
@@ -31,22 +26,7 @@ pickle.dump(log_reg,open('model.pkl','wb'))
 
 
 model = pickle.load(open('model.pkl','rb'))
-print(model.predict([[50,30,65]]))
 
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Sep 17 14:07:56 2022
-
-@author: Hp
-"""
-
-import streamlit as st
-import pickle
-import numpy as np
-import os
-print(os.getcwd())
-import time
-###time.sleep(30)
 model=pickle.load(open('model.pkl','rb'))
 
 
@@ -65,9 +45,9 @@ def main():
     """
     st.markdown(html_temp, unsafe_allow_html=True)
 
-    oxygen = st.text_input("Oxygen","Type Here")
-    humidity = st.text_input("Humidity","Type Here")
-    temperature = st.text_input("Temperature","Type Here")
+    oxygen = st.text_input("Oxygen","00")
+    humidity = st.text_input("Humidity","00")
+    temperature = st.text_input("Temperature","00")
     safe_html="""  
       <div style="background-color:#F4D03F;padding:10px >
        <h2 style="color:white;text-align:center;"> Your forest is safe</h2>
