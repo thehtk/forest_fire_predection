@@ -13,7 +13,7 @@ import warnings
 import pickle
 warnings.filterwarnings("ignore")
 
-data = pd.read_csv('C:\\Users\\Hp\\OneDrive\\Projects\\deploy\\Forest_fire.csv')
+data = pd.read_csv('Forest_fire.csv')
 data = np.array(data)
 
 X = data[1:, 1:-1]
